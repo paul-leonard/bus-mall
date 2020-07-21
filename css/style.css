@@ -55,9 +55,16 @@ p {
   text-align: center;
 } */
 
-li {
+#productGallery > li {
   float: left;
-  width: 230px;
+  width: 250px;
+  height: 250px;
   padding: 15px 15px 15px 15px;
 }
 
+li {
+  list-style: circle;
+  text-align: left;
+  margin-left: 25px;
+  line-height: 2em;
+}

@@ -46,7 +46,7 @@ math.random() will be used to determine which random products to show.  I will u
 
 // ************ Global Variables ***************
 var arrayOfProductObjects = [];
-var picksAllowedPerUserSession = 2; //per Lab11 will be 25
+var picksAllowedPerUserSession = 5; //per Lab11 will be 25
 var currentUserSessionClicks = 0;
 var productsToShowPerScreen = 3; //per Lab11 will be 3
 var randomPicks = [];
@@ -78,6 +78,8 @@ ProductObject.prototype.displayProduct = function() {
   productDisplayLi.appendChild(productLabelP);
 
   productGalleryTargetUl.appendChild(productDisplayLi);
+
+  this.timesShownThisSession++;
 };
 
 
@@ -104,15 +106,65 @@ function displayItems() {
   }
 }
 
+// function clickChoseProduct
+
+
+function reactToClick(event) {
+  console.log('react to event start');
+  console.log(event.target);
+  console.log(event);
+
+  //if an image was clicked on, increase the total click count
+  console.log(event.target.tagName);
+  if (event.target.tagName === 'IMG') {
+    currentUserSessionClicks++;
+
+    //figure out which product was clicked on and give it credit
+    for (var j= 0; j < arrayOfProductObjects.length; j++) {
+      if (arrayOfProductObjects[j].imageSrc === event.target.getAttribute('src')) {
+        console.log('They match at ' + j + ' which is ' + arrayOfProductObjects[j].productName);
+
+        arrayOfProductObjects[j].timesChosenThisSession++;
+      }
+    }
+
+    if(currentUserSessionClicks >= picksAllowedPerUserSession) {
+
+      //remove goat images
+      var productGalleryTargetUl = document.getElementById('productGallery');
+      productGalleryTargetUl.innerHTML = '';
+
+      //remove listener
+      productGalleryTargetUl.removeEventListener('click', reactToClick);
+
+      //display list
+      var targetEl = document.getElementById('surveyResults');
+
+      for (var k = 0; k < arrayOfProductObjects.length; k++) {
+        var eachLiEl = document.createElement('li');
+        eachLiEl.textContent = arrayOfProductObjects[k].productName + ' had ' + arrayOfProductObjects[k].timesChosenThisSession + ' votes and was shown ' + arrayOfProductObjects[k].timesShownThisSession + ' times.';
+        targetEl.appendChild(eachLiEl);
+      }
+    } else {
+      //display new set of products
+      displayItems();
+    }
+  } else {
+    alert('Please click on an image.');
+  }
+}
 
 
 // use while loops to find 3 random integers that are all unique)
-    // renderImagesToDisplay
-    // endSession (removes EventListener and displays results)
-    // generate listener?  or have this as part of display render?
+// renderImagesToDisplay
+// endSession (removes EventListener and displays results)
+// generate listener?  or have this as part of display render?
 
 
 // *************** Function Calls ***************
+
+var productGalleryTargetUl = document.getElementById('productGallery');
+productGalleryTargetUl.addEventListener('click', reactToClick);
 
 new ProductObject('R2D2 Rolling Suitcase','img/bag.jpg');
 new ProductObject('Banana Slicer','img/banana.jpg');
@@ -133,9 +185,7 @@ new ProductObject('Canned Unicorn Meat','img/unicorn.jpg');
 new ProductObject('Ever-Fill Watering Can','img/water-can.jpg');
 new ProductObject('Never-Emptying Wine Glass','img/wine-glass.jpg');
 new ProductObject('Sweeping Baby Onesie','img/sweep.png');
-new ProductObject('Moving Octopus USB Drive','img/usb.gif'); 
-
-//while loop to go around the below
+new ProductObject('Moving Octopus USB Drive','img/usb.gif');
 
 displayItems();
 
