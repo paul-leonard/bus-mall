@@ -51,6 +51,7 @@ var currentUserSessionClicks = 0;
 var productsToShowPerScreen = 3; //per Lab11 will be 3
 var randomPicks = [];
 
+
 // *************** Function Definitions ***************
 
 function ProductObject (productName, src) {
@@ -63,6 +64,7 @@ function ProductObject (productName, src) {
 
   arrayOfProductObjects.push(this);
 }
+
 
 ProductObject.prototype.displayProduct = function() {
   var productGalleryTargetUl = document.getElementById('productGallery');
@@ -81,7 +83,6 @@ ProductObject.prototype.displayProduct = function() {
 
   this.timesShownThisSession++;
 };
-
 
 
 function pickItemChoices() {
@@ -105,8 +106,6 @@ function displayItems() {
     arrayOfProductObjects[randomPicks[i]].displayProduct();
   }
 }
-
-// function clickChoseProduct
 
 
 function reactToClick(event) {
@@ -153,12 +152,6 @@ function reactToClick(event) {
     alert('Please click on an image.');
   }
 }
-
-
-// use while loops to find 3 random integers that are all unique)
-// renderImagesToDisplay
-// endSession (removes EventListener and displays results)
-// generate listener?  or have this as part of display render?
 
 
 // *************** Function Calls ***************
