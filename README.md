@@ -18,6 +18,7 @@ Below are some helpful links and resources used in producing this website.
 - [Code 201 class repo](https://github.com/codefellows/seattle-201d65)
 - My Code 201 class notes
 - [Setting Up Code 201 Projects](https://codefellows.github.io/code-201-guide/curriculum/class-02/project_setup)
+- [Discussion of centering UL and LIs on the page](https://stackoverflow.com/questions/1708054/how-can-i-center-ul-li-into-div)
 
 #### Use of Tools
 - .eslintrc.json is used as published on the [class GitHub repo](https://github.com/codefellows/seattle-201d65).
