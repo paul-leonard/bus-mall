@@ -12,7 +12,7 @@ Display images side-by-side-by-side.
 Once user clicks on an image, list three new.
 Track how many times a product was clicked on.
 Each user should get 25 clicks per session.
-After the maximum click picks, turrn off the event listener.
+After the maximum clicks/picks, turn off the event listener.
 Display a list of all products in the form "Product1 had x votes and was shown y times."
 
 *** Global Variables ***
@@ -121,7 +121,7 @@ function reactToClick(event) {
 
     //figure out which product was clicked on and give it credit
     for (var j= 0; j < arrayOfProductObjects.length; j++) {
-      if (arrayOfProductObjects[j].imageSrc === event.target.getAttribute('src')) {
+      if (arrayOfProductObjects[j].src === event.target.getAttribute('src')) {
         console.log('They match at ' + j + ' which is ' + arrayOfProductObjects[j].productName);
 
         arrayOfProductObjects[j].timesChosenThisSession++;
@@ -170,22 +170,22 @@ new ProductObject('R2D2 Rolling Suitcase','img/bag.jpg');
 new ProductObject('Banana Slicer','img/banana.jpg');
 new ProductObject('Tablet and TP Tower','img/bathroom.jpg');
 new ProductObject('Breathable Boots with no Fur','img/boots.jpg');
-new ProductObject('Toast, Egg, and Coffee Maker','img/breakfast.jpg');
-new ProductObject('Meatball Bubble Gum','img/bubblegum.jpg');
-new ProductObject('Inverted Chair','img/chair.jpg');
-new ProductObject('Cthulhu','img/cthulhu.jpg');
-new ProductObject('Beak for Dog','img/dog-duck.jpg');
-new ProductObject('Canned Dragon Meat','img/dragon.jpg');
-new ProductObject('Utensil Converter Pack for Pens','img/pen.jpg');
-new ProductObject('Sweeping Pet Booties','img/pet-sweep.jpg');
-new ProductObject('Pizza Scissors','img/scissors.jpg');
-new ProductObject('Shark Sleeping Bag','img/shark.jpg');
-new ProductObject('Tauntaun Sleeping Bag','img/tauntaun.jpg');
-new ProductObject('Canned Unicorn Meat','img/unicorn.jpg');
-new ProductObject('Ever-Fill Watering Can','img/water-can.jpg');
-new ProductObject('Never-Emptying Wine Glass','img/wine-glass.jpg');
-new ProductObject('Sweeping Baby Onesie','img/sweep.png');
-new ProductObject('Moving Octopus USB Drive','img/usb.gif');
+// new ProductObject('Toast, Egg, and Coffee Maker','img/breakfast.jpg');
+// new ProductObject('Meatball Bubble Gum','img/bubblegum.jpg');
+// new ProductObject('Inverted Chair','img/chair.jpg');
+// new ProductObject('Cthulhu','img/cthulhu.jpg');
+// new ProductObject('Beak for Dog','img/dog-duck.jpg');
+// new ProductObject('Canned Dragon Meat','img/dragon.jpg');
+// new ProductObject('Utensil Converter Pack for Pens','img/pen.jpg');
+// new ProductObject('Sweeping Pet Booties','img/pet-sweep.jpg');
+// new ProductObject('Pizza Scissors','img/scissors.jpg');
+// new ProductObject('Shark Sleeping Bag','img/shark.jpg');
+// new ProductObject('Tauntaun Sleeping Bag','img/tauntaun.jpg');
+// new ProductObject('Canned Unicorn Meat','img/unicorn.jpg');
+// new ProductObject('Ever-Fill Watering Can','img/water-can.jpg');
+// new ProductObject('Never-Emptying Wine Glass','img/wine-glass.jpg');
+// new ProductObject('Sweeping Baby Onesie','img/sweep.png');
+// new ProductObject('Moving Octopus USB Drive','img/usb.gif');
 
 displayItems();
 
