@@ -1,5 +1,5 @@
 * {
-  outline: 1px dashed orange;
+  /* outline: 1px dashed orange; */
   background-color: bisque;
 }
 
@@ -29,9 +29,6 @@ img {
   margin: 0px auto;
   }
 
-li {
-  list-style: none;
-}
 main>div {
   display: block;
   margin: 0px auto;
@@ -49,17 +46,19 @@ p {
   text-align: center;
   }
 
-/* ul {
-  display: block;
-  margin: 0px auto;
-  text-align: center;
-} */
+ul {
+  display: inline-block;
+  margin: 0px;
+  padding: 0px;
+  /* text-align: center; */
+}
 
 #productGallery > li {
   float: left;
   width: 250px;
   height: 250px;
   padding: 15px 15px 15px 15px;
+  list-style: none;
 }
 
 li {
@@ -67,4 +66,8 @@ li {
   text-align: left;
   margin-left: 25px;
   line-height: 2em;
+}
+
+#productGalleryDiv {
+  text-align: center;
 }

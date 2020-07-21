@@ -46,7 +46,7 @@ math.random() will be used to determine which random products to show.  I will u
 
 // ************ Global Variables ***************
 var arrayOfProductObjects = [];
-var picksAllowedPerUserSession = 5; //per Lab11 will be 25
+var picksAllowedPerUserSession = 25; //per Lab11 will be 25
 var currentUserSessionClicks = 0;
 var productsToShowPerScreen = 3; //per Lab11 will be 3
 var randomPicks = [];
@@ -88,7 +88,18 @@ ProductObject.prototype.displayProduct = function() {
 function pickItemChoices() {
   for (var i = 0; i < productsToShowPerScreen; i++) {
     // while () come back and make a function to prevent double occurances
-    randomPicks[i] = Math.floor(Math.random() * ((arrayOfProductObjects.length-1) - 0 + 1)) + 0;
+    do {
+      randomPicks[i] = Math.floor(Math.random() * ((arrayOfProductObjects.length-1) - 0 + 1)) + 0;
+
+      var redundantFlag = 0;
+      for (var m = 0; m < i; m++) {
+        if (randomPicks[i] === randomPicks[m]) {
+          redundantFlag = 1;
+          // console.log('Found a REDUNDANT one!');
+          break;
+        }
+      }
+    } while (redundantFlag === 1);
   }
 }
 
@@ -109,20 +120,19 @@ function displayItems() {
 
 
 function reactToClick(event) {
-  console.log('react to event start');
-  console.log(event.target);
-  console.log(event);
+  // console.log('react to event start');
+  // console.log(event.target);
+  // console.log(event);
 
   //if an image was clicked on, increase the total click count
-  console.log(event.target.tagName);
+  // console.log(event.target.tagName);
   if (event.target.tagName === 'IMG') {
     currentUserSessionClicks++;
 
     //figure out which product was clicked on and give it credit
     for (var j= 0; j < arrayOfProductObjects.length; j++) {
       if (arrayOfProductObjects[j].src === event.target.getAttribute('src')) {
-        console.log('They match at ' + j + ' which is ' + arrayOfProductObjects[j].productName);
-
+        // console.log('They match at ' + j + ' which is ' + arrayOfProductObjects[j].productName);
         arrayOfProductObjects[j].timesChosenThisSession++;
       }
     }
@@ -163,23 +173,23 @@ new ProductObject('R2D2 Rolling Suitcase','img/bag.jpg');
 new ProductObject('Banana Slicer','img/banana.jpg');
 new ProductObject('Tablet and TP Tower','img/bathroom.jpg');
 new ProductObject('Breathable Boots with no Fur','img/boots.jpg');
-// new ProductObject('Toast, Egg, and Coffee Maker','img/breakfast.jpg');
-// new ProductObject('Meatball Bubble Gum','img/bubblegum.jpg');
-// new ProductObject('Inverted Chair','img/chair.jpg');
-// new ProductObject('Cthulhu','img/cthulhu.jpg');
-// new ProductObject('Beak for Dog','img/dog-duck.jpg');
-// new ProductObject('Canned Dragon Meat','img/dragon.jpg');
-// new ProductObject('Utensil Converter Pack for Pens','img/pen.jpg');
-// new ProductObject('Sweeping Pet Booties','img/pet-sweep.jpg');
-// new ProductObject('Pizza Scissors','img/scissors.jpg');
-// new ProductObject('Shark Sleeping Bag','img/shark.jpg');
-// new ProductObject('Tauntaun Sleeping Bag','img/tauntaun.jpg');
-// new ProductObject('Canned Unicorn Meat','img/unicorn.jpg');
-// new ProductObject('Ever-Fill Watering Can','img/water-can.jpg');
-// new ProductObject('Never-Emptying Wine Glass','img/wine-glass.jpg');
-// new ProductObject('Sweeping Baby Onesie','img/sweep.png');
-// new ProductObject('Moving Octopus USB Drive','img/usb.gif');
+new ProductObject('Toast, Egg, and Coffee Maker','img/breakfast.jpg');
+new ProductObject('Meatball Bubble Gum','img/bubblegum.jpg');
+new ProductObject('Inverted Chair','img/chair.jpg');
+new ProductObject('Cthulhu','img/cthulhu.jpg');
+new ProductObject('Beak for Dog','img/dog-duck.jpg');
+new ProductObject('Canned Dragon Meat','img/dragon.jpg');
+new ProductObject('Utensil Converter Pack for Pens','img/pen.jpg');
+new ProductObject('Sweeping Pet Booties','img/pet-sweep.jpg');
+new ProductObject('Pizza Scissors','img/scissors.jpg');
+new ProductObject('Shark Sleeping Bag','img/shark.jpg');
+new ProductObject('Tauntaun Sleeping Bag','img/tauntaun.jpg');
+new ProductObject('Canned Unicorn Meat','img/unicorn.jpg');
+new ProductObject('Ever-Fill Watering Can','img/water-can.jpg');
+new ProductObject('Never-Emptying Wine Glass','img/wine-glass.jpg');
+new ProductObject('Sweeping Baby Onesie','img/sweep.png');
+new ProductObject('Moving Octopus USB Drive','img/usb.gif');
 
 displayItems();
 
-console.log(randomPicks);
+// console.log(randomPicks);
