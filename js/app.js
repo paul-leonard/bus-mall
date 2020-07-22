@@ -283,8 +283,8 @@ function reactToClick(event) {
         eachLiEl.textContent = arrayOfProductObjects[k].productName + ' had ' + arrayOfProductObjects[k].timesChosenThisSession + ' votes and was shown ' + arrayOfProductObjects[k].timesShownThisSession + ' times.';
         targetEl.appendChild(eachLiEl);
 
-        renderGraphs();
       }
+      renderGraphs();
     } else {
       //display new set of products
       displayItems();
@@ -298,15 +298,29 @@ function reactToClick(event) {
 function renderGraphs() {
   //make graphs for id: votesBarGraph, shownBarGraph, and integratedGraph
 
-  var ctx1 = document.getElementById('votesBarGraph').getContext('2d');
+  var productNameForGraph = [];
+  var voteDataForGraph = [];
+  var shownDataForGraph = [];
 
-  var votesBarGraph = new CharacterData(ctx, {
+  for (i = 0; i < arrayOfProductObjects.length; i++) {
+    productNameForGraph.push(arrayOfProductObjects[i].productName);
+    voteDataForGraph.push(arrayOfProductObjects[i].timesChosenThisSession);
+    shownDataForGraph.push(arrayOfProductObjects[i].timesShownThisSession);
+  }
+
+  // console.log('productNameForGraph',productNameForGraph);
+  // console.log('voteDataForGraph',voteDataForGraph);
+  // console.log('shownDataForGraph',shownDataForGraph);
+  
+  var ctx1 = document.getElementById('votesBarGraph').getContext('2d');
+  
+  var votesBarGraph = new Chart(ctx1, {
     type: 'bar',
     data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      labels: productNameForGraph,
       datasets: [{
         label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
+        data: voteDataForGraph,
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
           'rgba(54, 162, 235, 0.2)',
@@ -335,14 +349,48 @@ function renderGraphs() {
         }]
       }
     }
-
-
-
-
-
-
-
   });
+
+
+  var ctx2 = document.getElementById('shownBarGraph').getContext('2d');
+  
+  var votesBarGraph = new Chart(ctx2, {
+    type: 'bar',
+    data: {
+      labels: productNameForGraph,
+      datasets: [{
+        label: '# of Votes',
+        data: shownDataForGraph,
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
+
 }
 
 // *************** Function Calls ***************
@@ -356,20 +404,20 @@ new ProductObject('Tablet and TP Tower','img/bathroom.jpg');
 new ProductObject('Breathable Boots with no Fur','img/boots.jpg');
 new ProductObject('Toast, Egg, and Coffee Maker','img/breakfast.jpg');
 new ProductObject('Meatball Bubble Gum','img/bubblegum.jpg');
-// new ProductObject('Inverted Chair','img/chair.jpg');
-// new ProductObject('Cthulhu','img/cthulhu.jpg');
-// new ProductObject('Beak for Dog','img/dog-duck.jpg');
-// new ProductObject('Canned Dragon Meat','img/dragon.jpg');
-// new ProductObject('Utensil Converter Pack for Pens','img/pen.jpg');
-// new ProductObject('Sweeping Pet Booties','img/pet-sweep.jpg');
-// new ProductObject('Pizza Scissors','img/scissors.jpg');
-// new ProductObject('Shark Sleeping Bag','img/shark.jpg');
-// new ProductObject('Tauntaun Sleeping Bag','img/tauntaun.jpg');
-// new ProductObject('Canned Unicorn Meat','img/unicorn.jpg');
-// new ProductObject('Ever-Fill Watering Can','img/water-can.jpg');
-// new ProductObject('Never-Emptying Wine Glass','img/wine-glass.jpg');
-// new ProductObject('Sweeping Baby Onesie','img/sweep.png');
-// new ProductObject('Moving Octopus USB Drive','img/usb.gif');
+new ProductObject('Inverted Chair','img/chair.jpg');
+new ProductObject('Cthulhu','img/cthulhu.jpg');
+new ProductObject('Beak for Dog','img/dog-duck.jpg');
+new ProductObject('Canned Dragon Meat','img/dragon.jpg');
+new ProductObject('Utensil Converter Pack for Pens','img/pen.jpg');
+new ProductObject('Sweeping Pet Booties','img/pet-sweep.jpg');
+new ProductObject('Pizza Scissors','img/scissors.jpg');
+new ProductObject('Shark Sleeping Bag','img/shark.jpg');
+new ProductObject('Tauntaun Sleeping Bag','img/tauntaun.jpg');
+new ProductObject('Canned Unicorn Meat','img/unicorn.jpg');
+new ProductObject('Ever-Fill Watering Can','img/water-can.jpg');
+new ProductObject('Never-Emptying Wine Glass','img/wine-glass.jpg');
+new ProductObject('Sweeping Baby Onesie','img/sweep.png');
+new ProductObject('Moving Octopus USB Drive','img/usb.gif');
 
 for (var i = 0; i < productsToShowPerScreen; i++) {
   randomPicks[i] = -1;
