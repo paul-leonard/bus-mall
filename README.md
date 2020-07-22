@@ -20,13 +20,17 @@ Below are some helpful links and resources used in producing this website.
 - [Setting Up Code 201 Projects](https://codefellows.github.io/code-201-guide/curriculum/class-02/project_setup)
 - [Discussion of centering UL and LIs on the page](https://stackoverflow.com/questions/1708054/how-can-i-center-ul-li-into-div)
 
+#### Collaborations
+- Thanks to TA Chance for sitting down with me and trying to help me figure out my infinite loop troubles
+- Thanks to Riva for her advice on how she was handling passing between currentScreenPicks and previousScreenPicks
+
 #### Use of Tools
 - .eslintrc.json is used as published on the [class GitHub repo](https://github.com/codefellows/seattle-201d65).
 - [Eric Meyer's reset.css file](https://meyerweb.com/eric/tools/css/reset/)
 - The JavaScript 'use strict' command was used to ensure proper programming syntax was followed. 
 
 #### Known bugs
-- none; early construction
+- The first image slot can be a repeat from the previous screen.
 
 #### License
 Published with the MIT License on GitHub.
