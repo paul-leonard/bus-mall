@@ -30,6 +30,7 @@ img {
   }
 
 main>div {
+  /* outline: dashed red 2px; */
   display: block;
   margin: 0px auto;
   text-align: center;
@@ -71,3 +72,17 @@ li {
 #productGalleryDiv {
   text-align: center;
 }
+
+.containChart {
+  width: 400px;
+  height: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 
+canvas {
+  width: 400px;
+  height: 400px;
+  display: inline-block;
+} */
