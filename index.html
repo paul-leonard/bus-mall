@@ -22,7 +22,7 @@
       </p>
     </div>
     <div id="productGalleryDiv">
-      <h3>Please click on the product that is most interesting to you:</h3>
+      <h3 id="userInstructions"></h3>
       <ul id="productGallery">
         <!-- The JS app will target the ul id productGallery and create li, img, and p tags below:
         <li>
@@ -36,15 +36,19 @@
         <!-- The JS app will target the ul id surveyResults and create the list of results. -->
       </ul>
     </div>
-    <div>
 
-      <canvas id="votesBarGraph" width="300" height="300"></canvas>
-
-      <canvas id="shownBarGraph" width="300" height="300"></canvas>
-
-      <canvas id="integratedGraph" width="300" height="300"></canvas>
-    
+    <div class="containChart">
+      <canvas id="votesBarGraph" width="800" height="400"></canvas>
     </div>
+
+    <div class="containChart">
+      <canvas id="shownBarGraph" width="800" height="400"></canvas>
+    </div>
+
+    <div class="containChart">
+      <canvas id="integratedGraph" width="800" height="400"></canvas>
+    </div>
+    
   </main>
 
   <footer>
