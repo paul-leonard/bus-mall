@@ -27,6 +27,8 @@ Below are some helpful links and resources used in producing this website.
 - Thanks to Mike for help getting chart.js canvas elements to reduce in size
 - Thanks to Riva for helping find a missing comma to make stacked bar charts
 - Thanks to Nicholas for saving me from my repeating first image during code review!
+- Thanks to Riva for a good pep talk about local storage!
+- And to this website for helping me make a line/bar chart:  https://www.chartjs.org/docs/latest/charts/mixed.html
 
 #### Use of Tools
 - .eslintrc.json is used as published on the [class GitHub repo](https://github.com/codefellows/seattle-201d65).
