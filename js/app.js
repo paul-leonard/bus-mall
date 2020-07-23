@@ -134,6 +134,9 @@ function pickItemChoices() {
 
 
 function displayItems() {
+  var instructionsToUser = document.getElementById('userInstructions');
+  instructionsToUser.textContent = 'Please click on the product that is most interesting to you:';
+
   //clear previous choices
   var productGalleryTargetUl = document.getElementById('productGallery');
   productGalleryTargetUl.innerHTML = '';
@@ -162,6 +165,9 @@ function reactToClick(event) {
     }
 
     if(currentUserSessionClicks >= picksAllowedPerUserSession) {
+
+      var instructionsToUser = document.getElementById('userInstructions');
+      instructionsToUser.textContent = 'Results:';
 
       //remove product images
       var productGalleryTargetUl = document.getElementById('productGallery');
