@@ -53,7 +53,7 @@ math.random() will be used to determine which random products to show.  I will u
   - locate bar charts below where the images were (maybe need to keep up the three photos?)
   - charts should only appear after all voting is complete.
   - Add an extra type of chart (suggest line chart on top of bar chart; bar=votes, line=shown)
-  - Missed 0.5 point last time, understand why and fix.
+  - Missed 0.5 point last time, understand why and fix.  <- Needed to change arrayOfProductObjects from a global variable to a property of ProductObject constructor.
   - extra: Also consider pie charts of times shown
   - extra: what is the radar chart?
   - extra: calculate chosen/shown rate.
@@ -64,9 +64,9 @@ math.random() will be used to determine which random products to show.  I will u
 
 // ************ Global Variables ***************
 ProductObject.arrayOfProductObjects = [];
-var picksAllowedPerUserSession = 5; //per Lab11 will be 25
+var picksAllowedPerUserSession = 25; // will be 25
 var currentUserSessionClicks = 0;
-var productsToShowPerScreen = 3; //per Lab11 will be 3
+var productsToShowPerScreen = 3; // will be 3
 var randomPicks = [];
 var previousItemChoices = [];
 
@@ -469,19 +469,19 @@ new ProductObject('Tablet and TP Tower','img/bathroom.jpg');
 new ProductObject('Breathable Boots with no Fur','img/boots.jpg');
 new ProductObject('Toast, Egg, and Coffee Maker','img/breakfast.jpg');
 new ProductObject('Meatball Bubble Gum','img/bubblegum.jpg');
-// new ProductObject('Inverted Chair','img/chair.jpg');
-// new ProductObject('Cthulhu','img/cthulhu.jpg');
-// new ProductObject('Beak for Dog','img/dog-duck.jpg');
-// new ProductObject('Canned Dragon Meat','img/dragon.jpg');
-// new ProductObject('Utensil Converter Pack for Pens','img/pen.jpg');
-// new ProductObject('Sweeping Pet Booties','img/pet-sweep.jpg');
-// new ProductObject('Pizza Scissors','img/scissors.jpg');
-// new ProductObject('Shark Sleeping Bag','img/shark.jpg');
-// new ProductObject('Tauntaun Sleeping Bag','img/tauntaun.jpg');
-// new ProductObject('Canned Unicorn Meat','img/unicorn.jpg');
-// new ProductObject('Ever-Fill Watering Can','img/water-can.jpg');
-// new ProductObject('Never-Emptying Wine Glass','img/wine-glass.jpg');
-// new ProductObject('Sweeping Baby Onesie','img/sweep.png');
-// new ProductObject('Moving Octopus USB Drive','img/usb.gif');
+new ProductObject('Inverted Chair','img/chair.jpg');
+new ProductObject('Cthulhu','img/cthulhu.jpg');
+new ProductObject('Beak for Dog','img/dog-duck.jpg');
+new ProductObject('Canned Dragon Meat','img/dragon.jpg');
+new ProductObject('Utensil Converter Pack for Pens','img/pen.jpg');
+new ProductObject('Sweeping Pet Booties','img/pet-sweep.jpg');
+new ProductObject('Pizza Scissors','img/scissors.jpg');
+new ProductObject('Shark Sleeping Bag','img/shark.jpg');
+new ProductObject('Tauntaun Sleeping Bag','img/tauntaun.jpg');
+new ProductObject('Canned Unicorn Meat','img/unicorn.jpg');
+new ProductObject('Ever-Fill Watering Can','img/water-can.jpg');
+new ProductObject('Never-Emptying Wine Glass','img/wine-glass.jpg');
+new ProductObject('Sweeping Baby Onesie','img/sweep.png');
+new ProductObject('Moving Octopus USB Drive','img/usb.gif');
 
 displayItems();
