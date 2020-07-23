@@ -21,8 +21,12 @@ Below are some helpful links and resources used in producing this website.
 - [Discussion of centering UL and LIs on the page](https://stackoverflow.com/questions/1708054/how-can-i-center-ul-li-into-div)
 
 #### Collaborations
-- Thanks to TA Chance for sitting down with me and trying to help me figure out my infinite loop troubles
+- Thanks to Chance for sitting down with me and trying to help me figure out my infinite loop troubles
 - Thanks to Riva for her advice on how she was handling passing between currentScreenPicks and previousScreenPicks
+- Thanks to Allistar for idea to contain canvas within an element
+- Thanks to Mike for help getting chart.js canvas elements to reduce in size
+- Thanks to Riva for helping find a missing comma to make stacked bar charts
+- Thanks to Nicholas for saving me from my repeating first image during code review!
 
 #### Use of Tools
 - .eslintrc.json is used as published on the [class GitHub repo](https://github.com/codefellows/seattle-201d65).
@@ -30,7 +34,7 @@ Below are some helpful links and resources used in producing this website.
 - The JavaScript 'use strict' command was used to ensure proper programming syntax was followed. 
 
 #### Known bugs
-- The first image slot can be a repeat from the previous screen.
+None known.
 
 #### License
 Published with the MIT License on GitHub.

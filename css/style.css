@@ -76,13 +76,22 @@ li {
 .containChart {
   width: 400px;
   height: 400px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-/* 
-canvas {
-  width: 400px;
-  height: 400px;
-  display: inline-block;
+/* Improvement Idea for Later: Use end of session to trigger the below CSS to make charts look nicer on an off white background. */
+/* .containChart {
+  width: 600px;
+  height: 600px;
+  border-color: cadetblue;
+  box-shadow: rgb(108, 138, 139);
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 40px;
+}
+
+canvas, .containChart {
+  background-color: rgb(242, 242, 231);
+  border-radius: 40px;
 } */

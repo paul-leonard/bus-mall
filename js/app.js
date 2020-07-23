@@ -105,69 +105,31 @@ ProductObject.prototype.displayProduct = function() {
 
 
 function pickItemChoices() {
-  console.log('START OF PICKING NUMBERS FUNCTION');
-  console.log('previousItemChoices',previousItemChoices);
-  console.log('randomPicks',randomPicks);
-  console.log('previousItemChoices',previousItemChoices[0],previousItemChoices[1],previousItemChoices[2]);
-  console.log('randomPicks',randomPicks[0],randomPicks[1],randomPicks[2]);
-  console.log('-----------');
 
   for (var i = 0; i < productsToShowPerScreen; i++) {
-    // while () come back and make a function to prevent double occurances
     do {
-      console.log('START OF DO/WHILE LOOP');
-      console.log('previousItemChoices',previousItemChoices);
-      console.log('randomPicks',randomPicks);
-      console.log('previousItemChoices',previousItemChoices[0],previousItemChoices[1],previousItemChoices[2]);
-      console.log('randomPicks',randomPicks[0],randomPicks[1],randomPicks[2]);
-      console.log('-----------');
-      console.log('Picking a random integer...');
       randomPicks[i] = Math.floor(Math.random() * ((arrayOfProductObjects.length-1) - 0 + 1)) + 0;
-      console.log('Untested RANDOM number picked: ',randomPicks[i]);
-
       var redundantFlag = 0;
 
       //below for loop checks current pick againist current randomPicks that are at indices less than the current number
       for (var m = 0; m < i; m++) {
         if (randomPicks[i] === randomPicks[m]) {
           redundantFlag = 1;
-          console.log('Found a REDUNDANT on SAME screen!');
-          console.log('previousItemChoices',previousItemChoices[0],previousItemChoices[1],previousItemChoices[2]);
-          console.log('randomPicks',randomPicks[0],randomPicks[1],randomPicks[2]);
-          console.log('-----------');
-
+          // console.log('Found a REDUNDANT on SAME screen!');
           break;
-        } else {
-
-          console.log('Line 124: previousItemChoices',previousItemChoices);
-          console.log('Line 125: previousItemChoices.length',previousItemChoices.length);
-          // if (previousItemChoices.length > 2) {
-          //  NEED TO INDENT THE NEXT TEN LINEES IF UNCOMMENT OUT THE IF/ELSE STATEMENTS
-          for (var n = 0; n < previousItemChoices.length; n++) {
-            if (randomPicks[i] === previousItemChoices[n]) {
-              redundantFlag = 1;
-              console.log('Found a REPEAT from previous screen! At array index#', n);
-              console.log('previousItemChoices',previousItemChoices[0],previousItemChoices[1],previousItemChoices[2]);
-              console.log('randomPicks',randomPicks[0],randomPicks[1],randomPicks[2]);
-              console.log('-----------');
-              break;
-            }
-          }
-          // } else {
-          //   previousItemChoices.push(randomPicks[i]);
-          // }
         }
       }
-      console.log('redudandantFlag = ', redundantFlag);
+
+      //below for loop checks current pick againist all of the products on the last page
+      for (var n = 0; n < previousItemChoices.length; n++) {
+        if (randomPicks[i] === previousItemChoices[n]) {
+          redundantFlag = 1;
+          // console.log('Found a REPEAT from previous screen!');
+          break;
+        }
+      }
     } while (redundantFlag === 1);
   }
-  console.log('END OF PICKING NUMBERS FUNCTION');
-  console.log('previousItemChoices',previousItemChoices);
-  console.log('randomPicks',randomPicks);
-  console.log('previousItemChoices',previousItemChoices[0],previousItemChoices[1],previousItemChoices[2]);
-  console.log('randomPicks',randomPicks[0],randomPicks[1],randomPicks[2]);
-  console.log('-----------');
-  console.log('-----------');
 }
 
 
@@ -181,9 +143,7 @@ function displayItems() {
 
   //rely on methods to produce HTML to get each product on the page
   for (var i = 0; i < productsToShowPerScreen; i++) {
-
     arrayOfProductObjects[randomPicks[i]].displayProduct();
-
     previousItemChoices[i] = randomPicks[i];
   }
 }
@@ -212,14 +172,14 @@ function reactToClick(event) {
 
       //display list
       var targetEl = document.getElementById('surveyResults');
-
       for (var k = 0; k < arrayOfProductObjects.length; k++) {
         var eachLiEl = document.createElement('li');
         eachLiEl.textContent = arrayOfProductObjects[k].productName + ' had ' + arrayOfProductObjects[k].timesChosenThisSession + ' votes and was shown ' + arrayOfProductObjects[k].timesShownThisSession + ' times.';
         targetEl.appendChild(eachLiEl);
-
       }
+
       renderGraphs();
+
     } else {
       //display new set of products
       displayItems();
@@ -231,20 +191,19 @@ function reactToClick(event) {
 
 
 function renderGraphs() {
-  //make graphs for id: votesBarGraph, shownBarGraph, and integratedGraph
 
   var productNameForGraph = [];
   var voteDataForGraph = [];
   var shownDataForGraph = [];
 
-  for (i = 0; i < arrayOfProductObjects.length; i++) {
+  for (var i = 0; i < arrayOfProductObjects.length; i++) {
     productNameForGraph.push(arrayOfProductObjects[i].productName);
     voteDataForGraph.push(arrayOfProductObjects[i].timesChosenThisSession);
     shownDataForGraph.push(arrayOfProductObjects[i].timesShownThisSession);
   }
-  
+
   var ctx1 = document.getElementById('votesBarGraph').getContext('2d');
-  
+
   var votesBarGraph = new Chart(ctx1, {
     type: 'bar',
     data: {
@@ -312,7 +271,7 @@ function renderGraphs() {
 
 
   var ctx2 = document.getElementById('shownBarGraph').getContext('2d');
-  
+
   var votesBarGraph = new Chart(ctx2, {
     type: 'bar',
     data: {
@@ -496,12 +455,6 @@ function renderGraphs() {
     }
   });
 
-
-
-
-
-
-  
 } //end of renderGraphs function
 
 
@@ -531,11 +484,4 @@ new ProductObject('Meatball Bubble Gum','img/bubblegum.jpg');
 // new ProductObject('Sweeping Baby Onesie','img/sweep.png');
 // new ProductObject('Moving Octopus USB Drive','img/usb.gif');
 
-for (var i = 0; i < productsToShowPerScreen; i++) {
-  randomPicks[i] = -1;
-  previousItemChoices[i] = -1;
-}
-
 displayItems();
-
-// console.log(randomPicks);
