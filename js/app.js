@@ -73,7 +73,7 @@ math.random() will be used to determine which random products to show.  I will u
 
 // ************ Global Variables ***************
 ProductObject.arrayOfProductObjects = [];
-var picksAllowedPerUserSession = 5; // will be 25
+var picksAllowedPerUserSession = 25; // will be 25
 var currentUserSessionClicks = 0;
 var productsToShowPerScreen = 3; // will be 3
 var randomPicks = [];
@@ -772,20 +772,20 @@ if(marketSurveyDataFromLS !== null){
   new ProductObject('Breathable Boots with no Fur','img/boots.jpg',0,0,0,0);
   new ProductObject('Toast, Egg, and Coffee Maker','img/breakfast.jpg',0,0,0,0);
   new ProductObject('Meatball Bubble Gum','img/bubblegum.jpg',0,0,0,0);
-  // new ProductObject('Inverted Chair','img/chair.jpg',0,0,0,0);
-  // new ProductObject('Cthulhu','img/cthulhu.jpg',0,0,0,0);
-  // new ProductObject('Beak for Dog','img/dog-duck.jpg',0,0,0,0);
-  // new ProductObject('Canned Dragon Meat','img/dragon.jpg',0,0,0,0);
-  // new ProductObject('Utensil Converter Pack for Pens','img/pen.jpg',0,0,0,0);
-  // new ProductObject('Sweeping Pet Booties','img/pet-sweep.jpg',0,0,0,0);
-  // new ProductObject('Pizza Scissors','img/scissors.jpg',0,0,0,0);
-  // new ProductObject('Shark Sleeping Bag','img/shark.jpg',0,0,0,0);
-  // new ProductObject('Tauntaun Sleeping Bag','img/tauntaun.jpg',0,0,0,0);
-  // new ProductObject('Canned Unicorn Meat','img/unicorn.jpg',0,0,0,0);
-  // new ProductObject('Ever-Fill Watering Can','img/water-can.jpg',0,0,0,0);
-  // new ProductObject('Never-Emptying Wine Glass','img/wine-glass.jpg',0,0,0,0);
-  // new ProductObject('Sweeping Baby Onesie','img/sweep.png',0,0,0,0);
-  // new ProductObject('Moving Octopus USB Drive','img/usb.gif',0,0,0,0);
+  new ProductObject('Inverted Chair','img/chair.jpg',0,0,0,0);
+  new ProductObject('Cthulhu','img/cthulhu.jpg',0,0,0,0);
+  new ProductObject('Beak for Dog','img/dog-duck.jpg',0,0,0,0);
+  new ProductObject('Canned Dragon Meat','img/dragon.jpg',0,0,0,0);
+  new ProductObject('Utensil Converter Pack for Pens','img/pen.jpg',0,0,0,0);
+  new ProductObject('Sweeping Pet Booties','img/pet-sweep.jpg',0,0,0,0);
+  new ProductObject('Pizza Scissors','img/scissors.jpg',0,0,0,0);
+  new ProductObject('Shark Sleeping Bag','img/shark.jpg',0,0,0,0);
+  new ProductObject('Tauntaun Sleeping Bag','img/tauntaun.jpg',0,0,0,0);
+  new ProductObject('Canned Unicorn Meat','img/unicorn.jpg',0,0,0,0);
+  new ProductObject('Ever-Fill Watering Can','img/water-can.jpg',0,0,0,0);
+  new ProductObject('Never-Emptying Wine Glass','img/wine-glass.jpg',0,0,0,0);
+  new ProductObject('Sweeping Baby Onesie','img/sweep.png',0,0,0,0);
+  new ProductObject('Moving Octopus USB Drive','img/usb.gif',0,0,0,0);
 }
 
 displayItems();
