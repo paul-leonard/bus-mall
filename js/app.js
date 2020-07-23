@@ -16,7 +16,7 @@ User session
 - Display a list of all products in the form "Product1 had x votes and was shown y times."
 
 *** Global Variables ***
-arrayOfProductObjects (array of ProductObjects)
+ProductObject.arrayOfProductObjects (array of ProductObjects)
 picksAllowedPerUserSession
 currentUserSessionClicks
 productsToShowPerScreen
@@ -63,7 +63,7 @@ math.random() will be used to determine which random products to show.  I will u
 */
 
 // ************ Global Variables ***************
-var arrayOfProductObjects = [];
+ProductObject.arrayOfProductObjects = [];
 var picksAllowedPerUserSession = 5; //per Lab11 will be 25
 var currentUserSessionClicks = 0;
 var productsToShowPerScreen = 3; //per Lab11 will be 3
@@ -81,7 +81,7 @@ function ProductObject (productName, src) {
   this.ShownAllTimeCount = 0;
   this.ChosenAllTimeCount = 0;
 
-  arrayOfProductObjects.push(this);
+  ProductObject.arrayOfProductObjects.push(this);
 }
 
 
@@ -108,7 +108,7 @@ function pickItemChoices() {
 
   for (var i = 0; i < productsToShowPerScreen; i++) {
     do {
-      randomPicks[i] = Math.floor(Math.random() * ((arrayOfProductObjects.length-1) - 0 + 1)) + 0;
+      randomPicks[i] = Math.floor(Math.random() * ((ProductObject.arrayOfProductObjects.length-1) - 0 + 1)) + 0;
       var redundantFlag = 0;
 
       //below for loop checks current pick againist current randomPicks that are at indices less than the current number
@@ -143,7 +143,7 @@ function displayItems() {
 
   //rely on methods to produce HTML to get each product on the page
   for (var i = 0; i < productsToShowPerScreen; i++) {
-    arrayOfProductObjects[randomPicks[i]].displayProduct();
+    ProductObject.arrayOfProductObjects[randomPicks[i]].displayProduct();
     previousItemChoices[i] = randomPicks[i];
   }
 }
@@ -155,9 +155,9 @@ function reactToClick(event) {
     currentUserSessionClicks++;
 
     //figure out which product was clicked on and give it credit
-    for (var j= 0; j < arrayOfProductObjects.length; j++) {
-      if (arrayOfProductObjects[j].src === event.target.getAttribute('src')) {
-        arrayOfProductObjects[j].timesChosenThisSession++;
+    for (var j= 0; j < ProductObject.arrayOfProductObjects.length; j++) {
+      if (ProductObject.arrayOfProductObjects[j].src === event.target.getAttribute('src')) {
+        ProductObject.arrayOfProductObjects[j].timesChosenThisSession++;
       }
     }
 
@@ -172,9 +172,9 @@ function reactToClick(event) {
 
       //display list
       var targetEl = document.getElementById('surveyResults');
-      for (var k = 0; k < arrayOfProductObjects.length; k++) {
+      for (var k = 0; k < ProductObject.arrayOfProductObjects.length; k++) {
         var eachLiEl = document.createElement('li');
-        eachLiEl.textContent = arrayOfProductObjects[k].productName + ' had ' + arrayOfProductObjects[k].timesChosenThisSession + ' votes and was shown ' + arrayOfProductObjects[k].timesShownThisSession + ' times.';
+        eachLiEl.textContent = ProductObject.arrayOfProductObjects[k].productName + ' had ' + ProductObject.arrayOfProductObjects[k].timesChosenThisSession + ' votes and was shown ' + ProductObject.arrayOfProductObjects[k].timesShownThisSession + ' times.';
         targetEl.appendChild(eachLiEl);
       }
 
@@ -196,10 +196,10 @@ function renderGraphs() {
   var voteDataForGraph = [];
   var shownDataForGraph = [];
 
-  for (var i = 0; i < arrayOfProductObjects.length; i++) {
-    productNameForGraph.push(arrayOfProductObjects[i].productName);
-    voteDataForGraph.push(arrayOfProductObjects[i].timesChosenThisSession);
-    shownDataForGraph.push(arrayOfProductObjects[i].timesShownThisSession);
+  for (var i = 0; i < ProductObject.arrayOfProductObjects.length; i++) {
+    productNameForGraph.push(ProductObject.arrayOfProductObjects[i].productName);
+    voteDataForGraph.push(ProductObject.arrayOfProductObjects[i].timesChosenThisSession);
+    shownDataForGraph.push(ProductObject.arrayOfProductObjects[i].timesShownThisSession);
   }
 
   var ctx1 = document.getElementById('votesBarGraph').getContext('2d');
