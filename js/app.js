@@ -2,9 +2,6 @@
 
 /* ***** Project Layout *****
 
-Assumptions:
-User session
-
 *** Lab11 Feature List ***
 - Pick out 3 random images to show.
 - No repeat images within the three.
@@ -445,7 +442,9 @@ function renderGraphs() {
           'rgba(54, 162, 235, 0.8)',
           'rgba(255, 206, 86, 0.8)',
           'rgba(75, 192, 192, 0.8)',
-          'rgba(153, 102, 255, 0.8)'
+          'rgba(153, 102, 255, 0.8)',
+          'rgba(255, 159, 64, 0.8)',
+          'rgba(255, 99, 132, 0.8)'
         ],
         borderColor: [
           'rgba(255, 99, 132, 1)',
@@ -576,7 +575,10 @@ function renderAllTimeGraphs() {
           'rgba(54, 162, 235, 0.8)',
           'rgba(255, 206, 86, 0.8)',
           'rgba(75, 192, 192, 0.8)',
-          'rgba(153, 102, 255, 0.8)'
+          'rgba(153, 102, 255, 0.8)',
+          'rgba(255, 159, 64, 0.8)',
+          'rgba(255, 99, 132, 0.8)',
+          'rgba(54, 162, 235, 0.8)'
         ],
         borderColor: [
           'rgba(255, 99, 132, 1)',
@@ -695,7 +697,10 @@ function renderAllTimeGraphs() {
           'rgba(54, 162, 235, 0.8)',
           'rgba(255, 206, 86, 0.8)',
           'rgba(75, 192, 192, 0.8)',
-          'rgba(153, 102, 255, 0.8)'
+          'rgba(153, 102, 255, 0.8)',
+          'rgba(255, 159, 64, 0.8)',
+          'rgba(255, 99, 132, 0.8)',
+          'rgba(54, 162, 235, 0.8)'
         ],
         borderColor: [
           'rgba(255, 99, 132, 1)',
